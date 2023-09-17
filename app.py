@@ -12,6 +12,7 @@ class SimpleNN:
 
     def predict(self, x):
         h = self.relu(x.dot(self.w1))
+        h = self.relu(h)  # Applying ReLU activation function to the hidden layer
         y = h.dot(self.w2)
         y = np.clip(y, 0, 100)  # Clip the predictions to be between 0 and 100
         return y
