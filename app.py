@@ -25,7 +25,7 @@ model = SimpleNN(3, 10, 1, w1, w2)
 scaler = joblib.load('scaler.pkl')
 
 # Streamlit UI
-st.title('Exam Score Prediction')
+st.title('🚀AI Exam Score Prediction by Yuval Avidani @HACKIT.CO.IL🚀')
 st.write("""
 Enter the values to get the exam score prediction.
 """)
