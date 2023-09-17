@@ -12,7 +12,6 @@ class SimpleNN:
 
     def predict(self, x):
         h = self.relu(x.dot(self.w1))
-        h = self.relu(h)  # Applying ReLU activation function to the hidden layer
         y = h.dot(self.w2)
         y = np.clip(y, 0, 100)  # Clip the predictions to be between 0 and 100
         return y
@@ -30,9 +29,9 @@ st.title('Exam Score Prediction')
 st.write("""
 Enter the values to get the exam score prediction.
 """)
-age = st.number_input('Age', min_value=0, max_value=100, value=25)
-gender = st.number_input('Gender (0 for male, 1 for female)', min_value=0, max_value=1, value=0)
-sleep = st.number_input('Average Sleeping Hours', min_value=0, max_value=24, value=7)
+age = st.number_input('Age', value=25)
+gender = st.number_input('Gender (0 for male, 1 for female)', value=0)
+sleep = st.number_input('Average Sleeping Hours', value=7)
 if st.button('Predict'):
     input_data = np.array([age, gender, sleep]).reshape(1, -1)
     input_data = scaler.transform(input_data)  # Scale the input data
